@@ -143,7 +143,6 @@ namespace Child_env
             picCelebration.Size = new Size(200, 200);
             picCelebration.Location = new Point(350, 200);
             picCelebration.BorderStyle = BorderStyle.FixedSingle;
-            picCelebration.Image = Image.FromFile("./Assets/congratulations.jpg"); 
             picCelebration.SizeMode = PictureBoxSizeMode.StretchImage;
             picCelebration.Visible = false;
             this.Controls.Add(picCelebration);

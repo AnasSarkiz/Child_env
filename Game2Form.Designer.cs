@@ -42,9 +42,14 @@ namespace Child_env
             timer = new System.Windows.Forms.Timer(components);
             lblFeedback = new Label();
             startBtn = new Button();
+            picCelebration = new PictureBox();
+            picLose = new PictureBox();
+            btnPlayAgain = new Button();
             raceTrackPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)playerCar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)opponentCar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picCelebration).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picLose).BeginInit();
             SuspendLayout();
             // 
             // buttonHome
@@ -123,7 +128,6 @@ namespace Child_env
             playerCar.Name = "playerCar";
             playerCar.Size = new Size(66, 50);
             playerCar.SizeMode = PictureBoxSizeMode.StretchImage;
-            playerCar.Image = Image.FromFile("./Assets/blueCar.png");
             playerCar.TabIndex = 7;
             playerCar.TabStop = false;
             // 
@@ -134,7 +138,6 @@ namespace Child_env
             opponentCar.Name = "opponentCar";
             opponentCar.Size = new Size(66, 50);
             opponentCar.SizeMode = PictureBoxSizeMode.StretchImage;
-            opponentCar.Image = Image.FromFile("./Assets/yellowCar.png");
             opponentCar.TabIndex = 8;
             opponentCar.TabStop = false;
             // 
@@ -156,50 +159,59 @@ namespace Child_env
             // 
             // startBtn
             // 
-            startBtn.BackColor = Color.LightBlue;
+            startBtn.BackColor = Color.ForestGreen;
             startBtn.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            startBtn.Location = new Point(722, 12);
+            startBtn.Location = new Point(380, 151);
             startBtn.Name = "startBtn";
-            startBtn.Size = new Size(150, 50);
+            startBtn.Size = new Size(135, 43);
             startBtn.TabIndex = 10;
             startBtn.Text = "Start";
             startBtn.UseVisualStyleBackColor = false;
             startBtn.Click += StartButton_Click;
-            // Celebration PictureBox
-            picCelebration = new PictureBox();
-            picCelebration.Size = new Size(200, 200);
+            // 
+            // picCelebration
+            // 
             picCelebration.Location = new Point(350, 200);
-            picCelebration.Image = Image.FromFile("./Assets/congratulations.jpg"); 
+            picCelebration.Name = "picCelebration";
+            picCelebration.Size = new Size(200, 200);
             picCelebration.SizeMode = PictureBoxSizeMode.StretchImage;
+            picCelebration.TabIndex = 0;
+            picCelebration.TabStop = false;
             picCelebration.Visible = false;
-            this.Controls.Add(picCelebration);
-
-            // Lose PictureBox
-            picLose = new PictureBox();
-            picLose.Size = new Size(200, 200);
+            // 
+            // picLose
+            // 
             picLose.Location = new Point(350, 200);
-            picLose.Image = Image.FromFile("./Assets/lose.png"); 
+            picLose.Name = "picLose";
+            picLose.Size = new Size(200, 200);
             picLose.SizeMode = PictureBoxSizeMode.StretchImage;
+            picLose.TabIndex = 1;
+            picLose.TabStop = false;
             picLose.Visible = false;
-            this.Controls.Add(picLose);
-            // Play Again Button
-            btnPlayAgain = new Button();
-            btnPlayAgain.Text = "Play Again";
-            btnPlayAgain.Font = new Font("Comic Sans MS", 14, FontStyle.Bold);
+            // 
+            // btnPlayAgain
+            // 
             btnPlayAgain.BackColor = Color.LightBlue;
+            btnPlayAgain.Font = new Font("Comic Sans MS", 14F, FontStyle.Bold);
             btnPlayAgain.Location = new Point(380, 450);
+            btnPlayAgain.Name = "btnPlayAgain";
             btnPlayAgain.Size = new Size(150, 50);
+            btnPlayAgain.TabIndex = 2;
+            btnPlayAgain.Text = "Play Again";
+            btnPlayAgain.UseVisualStyleBackColor = false;
             btnPlayAgain.Visible = false;
             btnPlayAgain.Click += BtnPlayAgain_Click;
-            this.Controls.Add(btnPlayAgain);
-        // 
-        // Game2Form
-        // 
-        AutoScaleDimensions = new SizeF(7F, 15F);
+            // 
+            // Game2Form
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Beige;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(884, 661);
+            Controls.Add(picCelebration);
+            Controls.Add(picLose);
+            Controls.Add(btnPlayAgain);
             Controls.Add(startBtn);
             Controls.Add(buttonHome);
             Controls.Add(lblQuestion);
@@ -215,6 +227,8 @@ namespace Child_env
             raceTrackPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)playerCar).EndInit();
             ((System.ComponentModel.ISupportInitialize)opponentCar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picCelebration).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picLose).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

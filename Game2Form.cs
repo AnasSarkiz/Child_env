@@ -9,11 +9,15 @@ namespace Child_env
         private int playerProgress = 25;
         private int opponentProgress = 25;
         private SoundPlayer engineSoundPlayer;
+        
 
         public Game2Form()
         {
             InitializeComponent();
             engineSoundPlayer = new SoundPlayer("./Assets/car_engine.wav");
+            btnOption1.Visible = false;
+            btnOption2.Visible = false;
+            btnOption3.Visible = false;
         }
 
 
@@ -23,6 +27,11 @@ namespace Child_env
             startBtn.Visible = false;
             GenerateQuestion();
             timer.Start();
+            btnOption1.Visible = true;
+            btnOption2.Visible = true;
+            btnOption3.Visible = true;
+            playerCar.Image = Image.FromFile("./Assets/blueCar.png");
+            opponentCar.Image = Image.FromFile("./Assets/yellowCar.png");
         }
 
         private void GenerateQuestion()
@@ -102,13 +111,18 @@ namespace Child_env
 
         private void ShowCelebration()
         {
+            picCelebration.Image = Image.FromFile("./Assets/congratulations.png");
             picCelebration.Visible = true;
        
 
             SoundPlayer victorySound = new SoundPlayer("./Assets/clapping.wav");
             victorySound.Play();
+            btnOption1.Visible = false;
+            btnOption2.Visible = false;
+            btnOption3.Visible = false;
+            lblFeedback.Visible = false;
+            raceTrackPanel.Visible = false;
 
-           
             btnPlayAgain.Visible = true;
         }
 
@@ -119,7 +133,11 @@ namespace Child_env
 
             SoundPlayer loseSound = new SoundPlayer("./Assets/lose.wav");
             loseSound.Play();
-
+            btnOption1.Visible = false;
+            btnOption2.Visible = false;
+            btnOption3.Visible = false;
+            raceTrackPanel.Visible = false;
+            lblFeedback.Visible = false;
             btnPlayAgain.Visible = true;
         }
 
@@ -133,6 +151,11 @@ namespace Child_env
             btnPlayAgain.Visible = false;
             startBtn.Visible = true;
             GenerateQuestion();
+            btnOption1.Visible = true;
+            btnOption2.Visible = true;
+            btnOption3.Visible = true;
+            lblFeedback.Visible = true;
+            raceTrackPanel.Visible = true;
         }
 
         private void buttonHome_Click(object sender, EventArgs e)

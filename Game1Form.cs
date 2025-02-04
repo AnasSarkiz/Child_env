@@ -8,7 +8,9 @@ namespace Child_env
         private Button secondClicked = null;
         private Random random = new Random();
         private SoundPlayer correctSound;
+        SoundPlayer player = new SoundPlayer("./Assets/clapping.wav");
         private List<string> icons = new List<string>()
+
         {
             "🐎", "🐎", "🐣", "🐣", "🦎", "🦎", "🐋", "🐋",
             "🐨", "🐨", "🐜", "🐜", "🌹", "🌹", "🌲", "🌲"
@@ -26,6 +28,8 @@ namespace Child_env
 
         private void InitializeCardButtons()
         {
+            tableLayoutPanel.Visible = true;
+
             this.cardButtons = new Button[16];
             for (int i = 0; i < 16; i++)
             {
@@ -43,16 +47,20 @@ namespace Child_env
             pictureBox = new PictureBox
             {
                 Size = new Size(400, 400),
-                Location = new Point((this.ClientSize.Width - 400) / 2, (this.ClientSize.Height - 400) / 2),
-                Image = Image.FromFile("./Assets/congratulations.jpg"),
+                Location = new Point((this.ClientSize.Width - 400) / 2, (this.ClientSize.Height - 300) / 2),
+                Image = Image.FromFile("./Assets/congratulations.png"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
+
                 Visible = false
             };
+
+
             this.Controls.Add(pictureBox);
         }
 
         private void buttonHome_Click(object sender, EventArgs e)
         {
+            player.Stop();
             this.Close();
         }
 
@@ -118,7 +126,8 @@ namespace Child_env
 
         private void ShowCelebration()
         {
-            SoundPlayer player = new SoundPlayer("./Assets/clapping.wav");
+            tableLayoutPanel.Visible = false;
+
             player.Play();
 
             pictureBox.Visible = true;
@@ -126,7 +135,7 @@ namespace Child_env
             pictureBox.BorderStyle = BorderStyle.Fixed3D;
 
             System.Windows.Forms.Timer soundTimer = new System.Windows.Forms.Timer();
-            soundTimer.Interval = 5000; // 5 seconds
+            soundTimer.Interval = 5000; 
             soundTimer.Tick += (s, e) =>
             {
                 player.Stop();
